@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Punnett Square Generator</title>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; }
+        table { margin: 20px auto; border-collapse: collapse; }
+        th, td { border: 1px solid black; padding: 10px; text-align: center; }
+        .color1 { background-color: #ffcccc; }
+        .color2 { background-color: #ffcc99; }
+        .color3 { background-color: #ffff99; }
+        .color4 { background-color: #ccffcc; }
+        .color5 { background-color: #cce0ff; }
+        .color6 { background-color: #f2c2ff; }
+    </style>
+</head>
+<body>
+    <h2>Punnett Square Generator</h2>
+    <label>Enter number of traits (1-3): </label>
+    <input type="number" id="traitCount" min="1" max="3" value="2">
+    <br><br>
+    <label>Enter trait combinations (comma-separated): </label>
+    <input type="text" id="traitInput" placeholder="e.g. YR, Yr, yR, yr">
+    <br><br>
+    <button onclick="generateTable()">Generate Punnett Square</button>
+    <br><br>
+    <div id="punnettSquare"></div>
+
+    <script>
+        function generateTable() {
+            let traitInput = document.getElementById("traitInput").value.trim();
+            let traits = traitInput.split(",").map(t => t.trim());
+            let size = traits.length;
+            
+            if (size !== Math.pow(2, document.getElementById("traitCount").value)) {
+                alert("Invalid number of traits. Check your input!");
+                return;
+            }
+
+            let tableHTML = "<table><tr><th></th>";
+            traits.forEach(trait => tableHTML += `<th>${trait}</th>`);
+            tableHTML += "</tr>";
+
+            // Object to track the color assignments for each unique combination (normalized)
+            let colorMap = {};
+            let colorIndex = 0;
+
+            // List of color classes to apply
+            const colors = ["color1", "color2", "color3", "color4", "color5", "color6"];
+
+            traits.forEach(rowTrait => {
+                tableHTML += `<tr><th>${rowTrait}</th>`;
+                traits.forEach(colTrait => {
+                    // Normalize combination: sort the characters to treat "Af" and "fA" as the same
+                    let combination = normalizeCombination(rowTrait + colTrait);
+
+                    // If this combination hasn't been assigned a color yet, assign one
+                    if (!(combination in colorMap)) {
+                        colorMap[combination] = colors[colorIndex % colors.length];
+                        colorIndex++;
+                    }
+
+                    // Add the corresponding color class to the cell
+                    let cellClass = colorMap[combination];
+
+                    tableHTML += `<td class="${cellClass}">${rowTrait + colTrait}</td>`;
+                });
+                tableHTML += "</tr>";
+            });
+
+            tableHTML += "</table>";
+            document.getElementById("punnettSquare").innerHTML = tableHTML;
+        }
+
+        // Normalize combination by sorting the characters
+        function normalizeCombination(combination) {
+            return combination.split("").sort().join("");
+        }
+    </script>
+</body>
+</html>
+
+<!-- main code -->
