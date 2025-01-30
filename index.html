@@ -8,12 +8,19 @@
         body { font-family: Arial, sans-serif; text-align: center; }
         table { margin: 20px auto; border-collapse: collapse; }
         th, td { border: 1px solid black; padding: 10px; text-align: center; }
+        /* Add more color classes for more variety */
         .color1 { background-color: #ffcccc; }
         .color2 { background-color: #ffcc99; }
         .color3 { background-color: #ffff99; }
         .color4 { background-color: #ccffcc; }
         .color5 { background-color: #cce0ff; }
         .color6 { background-color: #f2c2ff; }
+        .color7 { background-color: #d4e157; }
+        .color8 { background-color: #ff7043; }
+        .color9 { background-color: #64b5f6; }
+        .color10 { background-color: #f06292; }
+        .color11 { background-color: #9575cd; }
+        .color12 { background-color: #ffb74d; }
     </style>
 </head>
 <body>
@@ -48,7 +55,10 @@
             let colorIndex = 0;
 
             // List of color classes to apply
-            const colors = ["color1", "color2", "color3", "color4", "color5", "color6"];
+            const colors = [
+                "color1", "color2", "color3", "color4", "color5", "color6", 
+                "color7", "color8", "color9", "color10", "color11", "color12"
+            ];
 
             traits.forEach(rowTrait => {
                 tableHTML += `<tr><th>${rowTrait}</th>`;
@@ -81,5 +91,3 @@
     </script>
 </body>
 </html>
-
-<!-- main code -->
