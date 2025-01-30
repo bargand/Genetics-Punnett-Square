@@ -1,93 +1,446 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Punnett Square Generator</title>
     <style>
-        body { font-family: Arial, sans-serif; text-align: center; }
-        table { margin: 20px auto; border-collapse: collapse; }
-        th, td { border: 1px solid black; padding: 10px; text-align: center; }
-        /* Add more color classes for more variety */
-        .color1 { background-color: #ffcccc; }
-        .color2 { background-color: #ffcc99; }
-        .color3 { background-color: #ffff99; }
-        .color4 { background-color: #ccffcc; }
-        .color5 { background-color: #cce0ff; }
-        .color6 { background-color: #f2c2ff; }
-        .color7 { background-color: #d4e157; }
-        .color8 { background-color: #ff7043; }
-        .color9 { background-color: #64b5f6; }
-        .color10 { background-color: #f06292; }
-        .color11 { background-color: #9575cd; }
-        .color12 { background-color: #ffb74d; }
+      body {
+        font-family: Arial, sans-serif;
+        text-align: center;
+      }
+      table {
+        margin: 20px auto;
+        border-collapse: collapse;
+        max-width: 100%;
+        overflow: auto;
+      }
+      th,
+      td {
+        border: 1px solid black;
+        padding: 10px;
+        text-align: center;
+      }
+      /* Add more color classes for more variety */
+      .color1 {
+        background-color: #ffcccc;
+      }
+      .color2 {
+        background-color: #ffcc99;
+      }
+      .color3 {
+        background-color: #ffff99;
+      }
+      .color4 {
+        background-color: #ccffcc;
+      }
+      .color5 {
+        background-color: #cce0ff;
+      }
+      .color6 {
+        background-color: #f2c2ff;
+      }
+      .color7 {
+        background-color: #d4e157;
+      }
+      .color8 {
+        background-color: #ff7043;
+      }
+      .color9 {
+        background-color: #64b5f6;
+      }
+      .color10 {
+        background-color: #f06292;
+      }
+      .color11 {
+        background-color: #9575cd;
+      }
+      .color12 {
+        background-color: #ffb74d;
+      }
+      .color13 {
+        background-color: #80deea;
+      }
+      .color14 {
+        background-color: #c5e1a5;
+      }
+      .color15 {
+        background-color: #ffeb3b;
+      }
+      .color16 {
+        background-color: #ff4081;
+      }
+      .color17 {
+        background-color: #ff80ab;
+      }
+      .color18 {
+        background-color: #81c784;
+      }
+      .color19 {
+        background-color: #4caf50;
+      }
+      .color20 {
+        background-color: #fbc02d;
+      }
+      .color21 {
+        background-color: #a5d6a7;
+      }
+      .color22 {
+        background-color: #d32f2f;
+      }
+      .color23 {
+        background-color: #ffb300;
+      }
+      .color24 {
+        background-color: #8c9eff;
+      }
+      .color25 {
+        background-color: #b39ddb;
+      }
+      .color26 {
+        background-color: #03a9f4;
+      }
+      .color27 {
+        background-color: #c2185b;
+      }
+      .color28 {
+        background-color: #8bc34a;
+      }
+      .color29 {
+        background-color: #f44336;
+      }
+      .color30 {
+        background-color: #9c27b0;
+      }
+      .color31 {
+        background-color: #ba68c8;
+      }
+      .color32 {
+        background-color: #ff5722;
+      }
+      .color33 {
+        background-color: #b2dfdb;
+      }
+      .color34 {
+        background-color: #f57c00;
+      }
+      .color35 {
+        background-color: #8e24aa;
+      }
+      .color36 {
+        background-color: #7b1fa2;
+      }
+      .color37 {
+        background-color: #01579b;
+      }
+      .color38 {
+        background-color: #c62828;
+      }
+      .color39 {
+        background-color: #f06292;
+      }
+      .color40 {
+        background-color: #29b6f6;
+      }
+      .color41 {
+        background-color: #ffb74d;
+      }
+      .color42 {
+        background-color: #81d4fa;
+      }
+      .color43 {
+        background-color: #d32f2f;
+      }
+      .color44 {
+        background-color: #6a1b9a;
+      }
+      .color45 {
+        background-color: #00e5ff;
+      }
+      .color46 {
+        background-color: #7c4dff;
+      }
+      .color47 {
+        background-color: #ff8a65;
+      }
+      .color48 {
+        background-color: #03dac5;
+      }
+      .color49 {
+        background-color: #90a4ae;
+      }
+      .color50 {
+        background-color: #ff80ab;
+      }
+      .color51 {
+        background-color: #ffb300;
+      }
+      .color52 {
+        background-color: #00c853;
+      }
+      .color53 {
+        background-color: #ff8f00;
+      }
+      .color54 {
+        background-color: #f44336;
+      }
+      .color55 {
+        background-color: #388e3c;
+      }
+      .color56 {
+        background-color: #8bc34a;
+      }
+      .color57 {
+        background-color: #0288d1;
+      }
+      .color58 {
+        background-color: #ffeb3b;
+      }
+      .color59 {
+        background-color: #f44336;
+      }
+      .color60 {
+        background-color: #1565c0;
+      }
+      .color61 {
+        background-color: #d32f2f;
+      }
+      .color62 {
+        background-color: #4caf50;
+      }
+      .color63 {
+        background-color: #3f51b5;
+      }
+      .color64 {
+        background-color: #7c4dff;
+      }
+      .color65 {
+        background-color: #90caf9;
+      }
+      .color66 {
+        background-color: #f50057;
+      }
+      .color67 {
+        background-color: #b2ebf2;
+      }
+      .color68 {
+        background-color: #ab47bc;
+      }
+      .color69 {
+        background-color: #3e2723;
+      }
+      .color70 {
+        background-color: #ffcc80;
+      }
+      .color71 {
+        background-color: #ff9e80;
+      }
+      .color72 {
+        background-color: #00bcd4;
+      }
+      .color73 {
+        background-color: #9c27b0;
+      }
+      .color74 {
+        background-color: #f44336;
+      }
+      .color75 {
+        background-color: #ff1744;
+      }
+      .color76 {
+        background-color: #d50000;
+      }
+      .color77 {
+        background-color: #7b1fa2;
+      }
+      .color78 {
+        background-color: #03a9f4;
+      }
+      .color79 {
+        background-color: #4caf50;
+      }
+      .color80 {
+        background-color: #ffb300;
+      }
+      .color81 {
+        background-color: #8e24aa;
+      }
+      .color82 {
+        background-color: #8bc34a;
+      }
+      .color83 {
+        background-color: #ff5722;
+      }
+      .color84 {
+        background-color: #9e9e9e;
+      }
+      .color85 {
+        background-color: #b2ff59;
+      }
+      .color86 {
+        background-color: #ff5252;
+      }
+      .color87 {
+        background-color: #c2185b;
+      }
+      .color88 {
+        background-color: #ff7043;
+      }
+      .color89 {
+        background-color: #f06292;
+      }
+      .color90 {
+        background-color: #fbc02d;
+      }
+      .color91 {
+        background-color: #8bc34a;
+      }
+      .color92 {
+        background-color: #f44336;
+      }
+      .color93 {
+        background-color: #e91e63;
+      }
+      .color94 {
+        background-color: #795548;
+      }
+      .color95 {
+        background-color: #2196f3;
+      }
+      .color96 {
+        background-color: #00bcd4;
+      }
+      .color97 {
+        background-color: #607d8b;
+      }
+      .color98 {
+        background-color: #009688;
+      }
+      .color99 {
+        background-color: #8bc34a;
+      }
+      .color100 {
+        background-color: #ff9800;
+      }
     </style>
-</head>
-<body>
+  </head>
+  <body>
     <h2>Punnett Square Generator</h2>
-    <label>Enter number of traits (1-3): </label>
-    <input type="number" id="traitCount" min="1" max="3" value="2">
-    <br><br>
+    <label>Enter number of traits (1-7): </label>
+    <input type="number" id="traitCount" min="1" max="7" value="2" />
+    <br /><br />
     <label>Enter trait combinations (comma-separated): </label>
-    <input type="text" id="traitInput" placeholder="e.g. YR, Yr, yR, yr">
-    <br><br>
+    <input type="text" id="traitInput" placeholder="e.g. Aa, aa, Bb, bb" />
+    <br /><br />
     <button onclick="generateTable()">Generate Punnett Square</button>
-    <br><br>
+    <br /><br />
     <div id="punnettSquare"></div>
 
     <script>
-        function generateTable() {
-            let traitInput = document.getElementById("traitInput").value.trim();
-            let traits = traitInput.split(",").map(t => t.trim());
-            let size = traits.length;
-            
-            if (size !== Math.pow(2, document.getElementById("traitCount").value)) {
-                alert("Invalid number of traits. Check your input!");
-                return;
+      function generateTable() {
+        let traitCount = parseInt(document.getElementById("traitCount").value);
+        let traitInput = document.getElementById("traitInput").value.trim();
+        let traits = traitInput.split(",").map((t) => t.trim());
+        let numCombinations = Math.pow(2, traitCount);
+
+        // Validation
+        if (traits.length !== numCombinations) {
+          alert(
+            `Invalid number of traits. You must enter ${numCombinations} combinations!`
+          );
+          return;
+        }
+
+        let tableHTML = "<table><tr><th></th>";
+        traits.forEach((trait) => (tableHTML += `<th>${trait}</th>`));
+        tableHTML += "</tr>";
+
+        // Object to track the color assignments for each unique combination (normalized)
+        let colorMap = {};
+        let colorIndex = 0;
+
+        // List of color classes to apply
+        const colors = [
+          "color1",
+          "color2",
+          "color3",
+          "color4",
+          "color5",
+          "color6",
+          "color7",
+          "color8",
+          "color9",
+          "color10",
+          "color11",
+          "color12",
+          "color13",
+          "color14",
+          "color15",
+          "color16",
+          "color17",
+          "color18",
+          "color19",
+          "color20",
+          "color21",
+          "color22",
+          "color23",
+          "color24",
+          "color25",
+          "color26",
+          "color27",
+          "color28",
+          "color29",
+          "color30",
+          "color31",
+          "color32",
+          "color33",
+          "color34",
+          "color35",
+          "color36",
+          "color37",
+          "color38",
+          "color39",
+          "color40",
+          "color41",
+          "color42",
+          "color43",
+          "color44",
+          "color45",
+          "color46",
+          "color47",
+          "color48",
+          "color49",
+          "color50",
+        ];
+
+        traits.forEach((rowTrait) => {
+          tableHTML += `<tr><th>${rowTrait}</th>`;
+          traits.forEach((colTrait) => {
+            // Normalize combination: sort the characters to treat "Af" and "fA" as the same
+            let combination = normalizeCombination(rowTrait + colTrait);
+
+            // If this combination hasn't been assigned a color yet, assign one
+            if (!(combination in colorMap)) {
+              colorMap[combination] = colors[colorIndex % colors.length];
+              colorIndex++;
             }
 
-            let tableHTML = "<table><tr><th></th>";
-            traits.forEach(trait => tableHTML += `<th>${trait}</th>`);
-            tableHTML += "</tr>";
+            // Add the corresponding color class to the cell
+            let cellClass = colorMap[combination];
 
-            // Object to track the color assignments for each unique combination (normalized)
-            let colorMap = {};
-            let colorIndex = 0;
+            tableHTML += `<td class="${cellClass}">${rowTrait + colTrait}</td>`;
+          });
+          tableHTML += "</tr>";
+        });
 
-            // List of color classes to apply
-            const colors = [
-                "color1", "color2", "color3", "color4", "color5", "color6", 
-                "color7", "color8", "color9", "color10", "color11", "color12"
-            ];
+        tableHTML += "</table>";
+        document.getElementById("punnettSquare").innerHTML = tableHTML;
+      }
 
-            traits.forEach(rowTrait => {
-                tableHTML += `<tr><th>${rowTrait}</th>`;
-                traits.forEach(colTrait => {
-                    // Normalize combination: sort the characters to treat "Af" and "fA" as the same
-                    let combination = normalizeCombination(rowTrait + colTrait);
-
-                    // If this combination hasn't been assigned a color yet, assign one
-                    if (!(combination in colorMap)) {
-                        colorMap[combination] = colors[colorIndex % colors.length];
-                        colorIndex++;
-                    }
-
-                    // Add the corresponding color class to the cell
-                    let cellClass = colorMap[combination];
-
-                    tableHTML += `<td class="${cellClass}">${rowTrait + colTrait}</td>`;
-                });
-                tableHTML += "</tr>";
-            });
-
-            tableHTML += "</table>";
-            document.getElementById("punnettSquare").innerHTML = tableHTML;
-        }
-
-        // Normalize combination by sorting the characters
-        function normalizeCombination(combination) {
-            return combination.split("").sort().join("");
-        }
+      // Normalize combination by sorting the characters
+      function normalizeCombination(combination) {
+        return combination.split("").sort().join("");
+      }
     </script>
-</body>
+  </body>
 </html>
