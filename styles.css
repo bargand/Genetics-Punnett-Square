@@ -1,6 +1,10 @@
 body {
     font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
     text-align: center;
+    align-items: center;
+    flex-direction: column;
   }
   table {
     margin: 20px auto;
@@ -314,4 +318,26 @@ body {
   }
   .color100 {
     background-color: #ff9800;
+  }
+
+
+  .main_input_fields{
+    width: 470px;
+    height: 313px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: thistle;
+    border: none;
+    border-radius: 10px;
+    flex-direction: column;
+    gap: 16px;
+    font-family: 'Courier New', Courier, monospace;
+  }
+  .input_heading{
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 30px;
+  }
+  .trait_number{
+    font-size: 17px;
   }

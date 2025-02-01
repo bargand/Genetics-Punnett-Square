@@ -7,14 +7,18 @@
     <link rel="stylesheet" href="styles.css">
   </head>
   <body>
-    <h2>Punnett Square Generator</h2>
-    <label>Enter number of traits (1-7): </label>
-    <input type="number" id="traitCount" min="1" max="7" value="2" />
-    <br /><br />
-    <label>Enter trait combinations (comma-separated): </label>
-    <input type="text" id="traitInput" placeholder="e.g. Aa, aa, Bb, bb" />
-    <br /><br />
-    <button onclick="generateTable()">Generate Punnett Square</button>
+    <div class="main_input_fields">
+      <h2 class="input_heading">Punnett Square Generator</h2>
+      <div class="trait_number">
+        <label>Enter number of traits (1-7): </label>
+        <input type="number" id="traitCount" min="1" max="7" value="2" />
+      </div>
+      <div>
+        <label>Enter trait combinations (comma-separated): </label>
+        <input type="text" id="traitInput" placeholder="e.g. Aa, aa, Bb, bb" />
+      </div>
+      <button onclick="generateTable()">Generate Punnett Square</button>
+    </div>
     <br /><br />
     <div id="punnettSquare"></div>
 
